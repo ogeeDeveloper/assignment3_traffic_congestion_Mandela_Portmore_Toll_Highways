@@ -1,0 +1,51 @@
+simulation:
+  default_vehicles: 5000
+  default_time_steps: 24
+  optimization_interval: 5
+
+road_network:
+  mandela_north:
+    id: "MN"
+    capacity: 2000
+    travel_time: 30
+  mandela_south:
+    id: "MS"
+    capacity: 2000
+    travel_time: 30
+  portmore_east:
+    id: "PE"
+    capacity: 1500
+    travel_time: 25
+  portmore_west:
+    id: "PW"
+    capacity: 1500
+    travel_time: 25
+  interchange_1:
+    id: "I1"
+    capacity: 1000
+    travel_time: 15
+  interchange_2:
+    id: "I2"
+    capacity: 1000
+    travel_time: 15
+
+optimization:
+  target_utilization: 0.7
+  knapsack_sample_vehicles:
+    - id: 1
+      weight: 1
+      value: 3
+    - id: 2
+      weight: 2
+      value: 4
+    - id: 3
+      weight: 3
+      value: 5
+
+visualization:
+  figure_size:
+    width: 12
+    height: 8
+  node_color: "lightblue"
+  node_size: 1500
+  font_size: 10
