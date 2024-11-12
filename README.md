@@ -26,8 +26,8 @@ An advanced traffic optimization system that uses dynamic programming approaches
 
 1. Clone the repository
    ```bash
-   git clone https://github.com/ogeedeveloper/traffic-congestion-system.git
-    cd traffic-congestion-system
+   git clone https://github.com/ogeeDeveloper/assignment3_traffic_congestion_Mandela_Portmore_Toll_Highways.git
+    cd assignment3_traffic_congestion_Mandela_Portmore_Toll_Highways
    ```
 
 2. Create and activate virtual environment
