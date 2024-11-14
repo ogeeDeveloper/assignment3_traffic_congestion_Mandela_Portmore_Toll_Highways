@@ -1,51 +1,83 @@
+system:
+  validation_frequency: 5
+  adjustment_threshold: 0.15
+  learning_rate: 0.1
+  debug_mode: true
+
 simulation:
   default_vehicles: 5000
   default_time_steps: 24
-  optimization_interval: 5
+  flow_rate_per_hour: 0.25
+  min_utilization: 0.4
+  peak_utilization: 0.9
+  base_exit_rate: 0.15
 
 road_network:
   mandela_north:
     id: "MN"
     capacity: 2000
     travel_time: 30
+    priority: "highway"
+    emergency_lanes: true
   mandela_south:
     id: "MS"
     capacity: 2000
     travel_time: 30
+    priority: "highway"
+    emergency_lanes: true
   portmore_east:
     id: "PE"
     capacity: 1500
     travel_time: 25
+    priority: "highway"
+    emergency_lanes: false
   portmore_west:
     id: "PW"
     capacity: 1500
     travel_time: 25
+    priority: "highway"
+    emergency_lanes: false
   interchange_1:
     id: "I1"
     capacity: 1000
     travel_time: 15
+    priority: "interchange"
+    emergency_lanes: false
   interchange_2:
     id: "I2"
     capacity: 1000
     travel_time: 15
+    priority: "interchange"
+    emergency_lanes: false
 
-optimization:
-  target_utilization: 0.7
-  knapsack_sample_vehicles:
-    - id: 1
-      weight: 1
-      value: 3
-    - id: 2
-      weight: 2
-      value: 4
-    - id: 3
-      weight: 3
-      value: 5
+vehicle_priorities:
+  emergency: 5.0
+  public_transport: 3.0
+  commercial: 2.0
+  private: 1.0
+
+time_periods: # Changed from time_modifiers to time_periods
+  morning_peak:
+    hours: [6, 7, 8, 9]
+    inflow_mod: 1.5
+    outflow_mod: 0.8
+  evening_peak:
+    hours: [16, 17, 18, 19]
+    inflow_mod: 0.8
+    outflow_mod: 1.5
+  night:
+    hours: [0, 1, 2, 3, 4, 5]
+    inflow_mod: 0.5
+    outflow_mod: 0.5
+  normal:
+    hours: [10, 11, 12, 13, 14, 15, 20, 21, 22, 23]
+    inflow_mod: 1.0
+    outflow_mod: 1.0
 
 visualization:
   figure_size:
-    width: 12
-    height: 8
-  node_color: "lightblue"
-  node_size: 1500
-  font_size: 10
+    width: 20
+    height: 12
+  node_size: 2000
+  font_size: 8
+  colormap: "RdYlBu_r"
